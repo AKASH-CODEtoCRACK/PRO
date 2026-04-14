@@ -1,8 +1,10 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 import Logo from './Logo';
 import { branding } from '@/lib/branding';
+import { images } from '@/lib/images';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -34,12 +36,13 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="mb-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-[#3B82F6] to-[#60A5FA] rounded-lg flex items-center justify-center">
-                  <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="white" fillOpacity="0.9" />
-                    <path d="M2 17L12 22L22 17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M2 12L12 17L22 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                <div className="relative w-12 h-12 flex-shrink-0">
+                  <Image
+                    src={images.logo}
+                    alt={`${branding.name} Logo`}
+                    fill
+                    className="object-contain"
+                  />
                 </div>
                 <div>
                   <div className="text-xl font-bold text-white">{branding.name}</div>

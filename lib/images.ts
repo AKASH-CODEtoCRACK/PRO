@@ -1,5 +1,9 @@
 // Premium UAE business images - High quality, vibrant, eye-catching
 export const images = {
+  // Company Logo
+  logo: '/images/logo.png',
+  logoIcon: '/images/logo.png',
+  
   // Hero/Homepage images - Stunning Dubai visuals
   hero: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1920&q=90', // Dubai skyline at sunset - vibrant
   dubaiNight: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1920&q=90', // Dubai at night - stunning lights

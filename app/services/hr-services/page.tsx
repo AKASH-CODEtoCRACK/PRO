@@ -4,13 +4,14 @@ import ServiceTemplate from '../ServiceTemplate';
 import { Users } from 'lucide-react';
 import { FaUserPlus, FaFileContract, FaMoneyCheckAlt, FaCalendarAlt } from 'react-icons/fa';
 import { MdPeople, MdAssignment, MdPayment, MdExitToApp } from 'react-icons/md';
+import type { ImageKey } from '@/lib/images';
 
 export default function HRServicesPage() {
   const data = {
     title: 'HR Services',
     description: 'Complete HR management and employee lifecycle services',
     icon: Users,
-    image: 'hrServices',
+    image: 'hrServices' as ImageKey,
     stats: {
       time: 'Ongoing',
       compliance: '100% Compliant',

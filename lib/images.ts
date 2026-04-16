@@ -52,7 +52,9 @@ export const images = {
   innovation: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=85', // Innovation/technology
   growth: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=85', // Business growth charts
   partnership: 'https://images.unsplash.com/photo-1556761223-4c4282c73f77?w=1200&q=85', // Partnership concept
-};
+} as const;
+
+export type ImageKey = keyof typeof images;
 
 // Image with overlay component helper - Updated for teal/gold theme
 export const getImageWithOverlay = (imageUrl: string, opacity: number = 0.5) => ({

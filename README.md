@@ -189,9 +189,21 @@ The app can be deployed to any platform that supports Next.js:
 Create a `.env.local` file for environment variables:
 
 ```env
-# Add your environment variables here
-NEXT_PUBLIC_SITE_URL=https://yoursite.com
+# EmailJS Configuration (Required for contact forms - FREE TIER)
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_COMPANY_TEMPLATE_ID=your_company_template_id
+NEXT_PUBLIC_EMAILJS_USER_TEMPLATE_ID=your_user_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 ```
+
+### EmailJS Setup (Free Tier - 2 Templates)
+
+1. Create an account at [EmailJS](https://www.emailjs.com/)
+2. Create 2 email templates:
+   - **Company Template**: Receives both contact form and meeting request submissions
+   - **User Template**: Sends acknowledgment emails to users
+3. Add your credentials to `.env.local`
+4. Both forms use the same 2 templates with conditional fields
 
 ## 📱 Key Features Explained
 

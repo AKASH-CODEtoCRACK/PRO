@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageLoader from "@/components/PageLoader";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -10,9 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "PRO & Government Relations | Saudi Arabia",
-  description: "Professional PRO services for company setup, visa processing, and government compliance in Saudi Arabia. Save 50% with expert outsourcing.",
-  keywords: "PRO services Saudi Arabia, MISA, GOSI, Iqama, Muqeem, Absher, Qiwa, ZATCA",
+  title: "PRO & Government Relations | UAE",
+  description: "Professional PRO services for company setup, visa processing, and government compliance in UAE. Expert PRO solutions for your business.",
+  keywords: "PRO services UAE, Dubai PRO, company setup UAE, visa services UAE, business setup Dubai",
 };
 
 export default function RootLayout({
@@ -22,7 +23,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased bg-[#0A1628] text-white`}>
+      <body className={`${inter.variable} font-sans antialiased bg-white text-gray-900`}>
+        <PageLoader />
         <Navbar />
         {children}
         <Footer />

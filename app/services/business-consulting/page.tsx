@@ -4,13 +4,14 @@ import ServiceTemplate from '../ServiceTemplate';
 import { Briefcase } from 'lucide-react';
 import { FaChartLine, FaHandshake, FaLightbulb, FaShieldAlt } from 'react-icons/fa';
 import { MdBusiness, MdTrendingUp, MdAssessment, MdSecurity } from 'react-icons/md';
+import type { ImageKey } from '@/lib/images';
 
 export default function BusinessConsultingPage() {
   const data = {
     title: 'Business Consulting',
     description: 'Strategic guidance for Saudi market entry and business operations',
     icon: Briefcase,
-    image: 'businessConsulting',
+    image: 'businessConsulting' as ImageKey,
     stats: {
       time: 'Customized',
       compliance: 'Strategic Advice',

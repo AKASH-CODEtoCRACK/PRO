@@ -4,13 +4,14 @@ import ServiceTemplate from '../ServiceTemplate';
 import { Shield } from 'lucide-react';
 import { FaBalanceScale, FaFileInvoiceDollar, FaUserCheck, FaClipboardCheck } from 'react-icons/fa';
 import { MdSecurity, MdVerified, MdGavel, MdAssignment } from 'react-icons/md';
+import type { ImageKey } from '@/lib/images';
 
 export default function LaborCompliancePage() {
   const data = {
     title: 'Labor Compliance Services',
     description: 'Complete labor law compliance and government reporting for Saudi Arabia',
     icon: Shield,
-    image: 'laborCompliance',
+    image: 'laborCompliance' as ImageKey,
     stats: {
       time: '2-5 Days',
       compliance: '100% Compliant',

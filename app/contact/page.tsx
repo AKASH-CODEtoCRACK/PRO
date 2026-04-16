@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactFormSchema, meetingFormSchema, type ContactFormData, type MeetingFormData } from '@/lib/validations';
@@ -10,10 +10,38 @@ import { services } from '@/lib/services';
 import { images } from '@/lib/images';
 import Image from 'next/image';
 import { branding } from '@/lib/branding';
+import emailjs from '@emailjs/browser';
+
+// EmailJS Configuration
+const EMAILJS_CONFIG = {
+  serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+  contactTemplateId: process.env.NEXT_PUBLIC_EMAILJS_COMPANY_TEMPLATE_ID || '', // For company emails
+  meetingTemplateId: process.env.NEXT_PUBLIC_EMAILJS_USER_TEMPLATE_ID || '', // For user acknowledgment
+  publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '',
+};
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [contactSubmitStatus, setContactSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [meetingSubmitStatus, setMeetingSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // Initialize EmailJS
+  useEffect(() => {
+    console.log('EmailJS Config:', {
+      serviceId: EMAILJS_CONFIG.serviceId,
+      contactTemplateId: EMAILJS_CONFIG.contactTemplateId,
+      meetingTemplateId: EMAILJS_CONFIG.meetingTemplateId,
+      publicKey: EMAILJS_CONFIG.publicKey ? 'Set' : 'Not Set',
+    });
+
+    if (EMAILJS_CONFIG.publicKey) {
+      emailjs.init(EMAILJS_CONFIG.publicKey);
+      console.log('EmailJS initialized successfully');
+    } else {
+      console.error('EmailJS Public Key is missing!');
+    }
+  }, []);
 
   return (
     <main className="min-h-screen pt-16 bg-white">
@@ -137,8 +165,8 @@ export default function ContactPage() {
                 <ContactForm
                   isSubmitting={isSubmitting}
                   setIsSubmitting={setIsSubmitting}
-                  submitStatus={submitStatus}
-                  setSubmitStatus={setSubmitStatus}
+                  submitStatus={contactSubmitStatus}
+                  setSubmitStatus={setContactSubmitStatus}
                 />
               </div>
             </motion.div>
@@ -166,8 +194,8 @@ export default function ContactPage() {
                 <MeetingForm
                   isSubmitting={isSubmitting}
                   setIsSubmitting={setIsSubmitting}
-                  submitStatus={submitStatus}
-                  setSubmitStatus={setSubmitStatus}
+                  submitStatus={meetingSubmitStatus}
+                  setSubmitStatus={setMeetingSubmitStatus}
                 />
               </div>
             </motion.div>
@@ -294,20 +322,64 @@ function ContactForm({
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
+    console.log('Contact form data:', data);
+    console.log('Using templates:', {
+      company: EMAILJS_CONFIG.contactTemplateId,
+      user: EMAILJS_CONFIG.meetingTemplateId,
+    });
 
-      if (response.ok) {
-        setSubmitStatus('success');
-        reset();
-      } else {
-        setSubmitStatus('error');
+    try {
+      // Validate configuration
+      if (!EMAILJS_CONFIG.serviceId || !EMAILJS_CONFIG.contactTemplateId || !EMAILJS_CONFIG.meetingTemplateId || !EMAILJS_CONFIG.publicKey) {
+        throw new Error('EmailJS configuration is incomplete. Please check your .env.local file.');
       }
+
+      // Send email to company
+      console.log('Sending email to company...');
+      const companyResponse = await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.contactTemplateId,
+        {
+          form_type: 'Contact Form',
+          to_name: 'PRO Agency Team',
+          from_name: data.name,
+          from_email: data.email,
+          phone: data.phone,
+          message: data.message,
+          service: '',
+          meeting_date: '',
+          meeting_time: '',
+          reply_to: data.email,
+        },
+        EMAILJS_CONFIG.publicKey
+      );
+      console.log('Company email sent:', companyResponse);
+
+      // Send acknowledgment email to user
+      console.log('Sending acknowledgment to user...');
+      const userResponse = await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.meetingTemplateId,
+        {
+          form_type: 'Contact Form',
+          to_name: data.name,
+          user_email: data.email, // Changed from to_email
+          from_name: 'PRO Agency',
+          user_message: `Dear ${data.name},\n\nThank you for reaching out to us. We have received your message and will get back to you within 24 hours.\n\nYour message:\n${data.message}\n\nBest regards,\nPRO Agency Team`,
+          service: '',
+          meeting_date: '',
+          meeting_time: '',
+          reply_to: branding.contact.email,
+        },
+        EMAILJS_CONFIG.publicKey
+      );
+      console.log('User email sent:', userResponse);
+
+      setSubmitStatus('success');
+      reset();
     } catch (error) {
+      console.error('Email sending failed:', error);
+      console.error('Error details:', JSON.stringify(error, null, 2));
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -429,20 +501,64 @@ function MeetingForm({
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, type: 'meeting' }),
-      });
+    console.log('Meeting form data:', data);
+    console.log('Using templates:', {
+      company: EMAILJS_CONFIG.contactTemplateId,
+      user: EMAILJS_CONFIG.meetingTemplateId,
+    });
 
-      if (response.ok) {
-        setSubmitStatus('success');
-        reset();
-      } else {
-        setSubmitStatus('error');
+    try {
+      // Validate configuration
+      if (!EMAILJS_CONFIG.serviceId || !EMAILJS_CONFIG.contactTemplateId || !EMAILJS_CONFIG.meetingTemplateId || !EMAILJS_CONFIG.publicKey) {
+        throw new Error('EmailJS configuration is incomplete. Please check your .env.local file.');
       }
+
+      // Send meeting request to company
+      console.log('Sending email to company...');
+      const companyResponse = await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.contactTemplateId,
+        {
+          form_type: 'Meeting Request',
+          to_name: 'PRO Agency Team',
+          from_name: data.name,
+          from_email: data.email,
+          phone: data.phone,
+          message: `Meeting request for ${data.service}`,
+          service: data.service,
+          meeting_date: data.date,
+          meeting_time: data.time,
+          reply_to: data.email,
+        },
+        EMAILJS_CONFIG.publicKey
+      );
+      console.log('Company email sent:', companyResponse);
+
+      // Send confirmation email to user
+      console.log('Sending confirmation to user...');
+      const userResponse = await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.meetingTemplateId,
+        {
+          form_type: 'Meeting Request',
+          to_name: data.name,
+          user_email: data.email, // Changed from to_email
+          from_name: 'PRO Agency',
+          user_message: `Dear ${data.name},\n\nYour meeting has been scheduled successfully!\n\nDetails:\n- Service: ${data.service}\n- Date: ${data.date}\n- Time: ${data.time}\n\nWe will send you a calendar invite shortly. If you need to reschedule, please contact us.\n\nBest regards,\nPRO Agency Team`,
+          service: data.service,
+          meeting_date: data.date,
+          meeting_time: data.time,
+          reply_to: branding.contact.email,
+        },
+        EMAILJS_CONFIG.publicKey
+      );
+      console.log('User email sent:', userResponse);
+
+      setSubmitStatus('success');
+      reset();
     } catch (error) {
+      console.error('Meeting email sending failed:', error);
+      console.error('Error details:', JSON.stringify(error, null, 2));
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

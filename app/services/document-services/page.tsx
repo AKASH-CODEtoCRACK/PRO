@@ -4,13 +4,14 @@ import ServiceTemplate from '../ServiceTemplate';
 import { FileText } from 'lucide-react';
 import { FaFileSignature, FaLanguage, FaStamp, FaCertificate } from 'react-icons/fa';
 import { MdTranslate, MdVerifiedUser, MdGavel, MdDescription } from 'react-icons/md';
+import type { ImageKey } from '@/lib/images';
 
 export default function DocumentServicesPage() {
   const data = {
     title: 'Document Services',
     description: 'Professional document attestation, translation, and processing services',
     icon: FileText,
-    image: 'documentServices',
+    image: 'documentServices' as ImageKey,
     stats: {
       time: '3-7 Days',
       compliance: '100% Accurate',

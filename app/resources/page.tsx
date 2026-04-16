@@ -4,8 +4,22 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FileText, Download, ExternalLink, BookOpen } from 'lucide-react';
 
+type ResourceItem = {
+  title: string;
+  type?: string;
+  size?: string;
+  url?: string;
+  link?: string;
+  external?: boolean;
+};
+
+type ResourceSection = {
+  category: string;
+  items: ResourceItem[];
+};
+
 export default function ResourcesPage() {
-  const resources = [
+  const resources: ResourceSection[] = [
     {
       category: 'Guides & Checklists',
       items: [

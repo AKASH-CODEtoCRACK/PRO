@@ -17,40 +17,40 @@ export default function LaborCompliancePage() {
       compliance: '100% Compliant',
       support: 'Ongoing Support'
     },
-    overview: `Ensure your business stays compliant with Saudi labor laws and regulations. Our comprehensive 
-    compliance services cover Qiwa management, Mudad wage protection, ZATCA registration, and Nitaqat support. 
-    We help you avoid penalties and maintain good standing with government authorities.`,
+    overview: ["Ensure your business remains fully compliant with UAE labour laws and regulations. Our comprehensive services cover work permit and contract management, wage protection system (WPS) compliance, and support with Ministry of Human Resources and Emiratisation requirements.",
+    
+    "We assist with employee records, inspections, and ongoing compliance to help you avoid penalties and maintain a strong standing with UAE authorities."],
     features: [
       {
         icon: <FaBalanceScale className="text-[#3B82F6]" size={24} />,
-        title: 'Qiwa Compliance Management',
-        description: 'Complete Qiwa portal management and compliance monitoring'
+        title: 'WPS (Wage Protection System) management',
+        description: 'Comprehensive WPS management to ensure timely and compliant salary processing'
       },
       {
         icon: <FaFileInvoiceDollar className="text-[#3B82F6]" size={24} />,
-        title: 'Mudad Wage Protection',
-        description: 'WPS registration and monthly salary file processing'
-      },
-      {
-        icon: <MdVerified className="text-[#3B82F6]" size={24} />,
-        title: 'ZATCA Tax Registration',
-        description: 'VAT registration and tax compliance services'
+        title: 'Payroll assistance',
+        description: 'Reliable payroll assistance to ensure accurate and timely salary management'
       },
       {
         icon: <FaUserCheck className="text-[#3B82F6]" size={24} />,
-        title: 'Nitaqat Support',
-        description: 'Saudization compliance and green/platinum status maintenance'
+        title: 'Emiratisation solutions',
+        description: 'Tailored Emiratisation solutions to meet compliance and empower local workforce integration'
       },
+      // {
+      //   icon: <MdVerified className="text-[#3B82F6]" size={24} />,
+      //   title: 'ZATCA Tax Registration',
+      //   description: 'VAT registration and tax compliance services'
+      // },
       {
         icon: <FaClipboardCheck className="text-[#3B82F6]" size={24} />,
-        title: 'Labor Contract Registration',
-        description: 'Register and manage employment contracts on Qiwa'
+        title: 'Pension registration',
+        description: 'Streamlined pension registration services to ensure compliance and secure employee benefits'
       },
-      {
-        icon: <MdSecurity className="text-[#3B82F6]" size={24} />,
-        title: 'GOSI Compliance',
-        description: 'Social insurance registration and monthly reporting'
-      },
+      // {
+      //   icon: <MdSecurity className="text-[#3B82F6]" size={24} />,
+      //   title: 'GOSI Compliance',
+      //   description: 'Social insurance registration and monthly reporting'
+      // },
       {
         icon: <MdGavel className="text-[#3B82F6]" size={24} />,
         title: 'Labor Law Advisory',
@@ -58,8 +58,8 @@ export default function LaborCompliancePage() {
       },
       {
         icon: <MdAssignment className="text-[#3B82F6]" size={24} />,
-        title: 'Compliance Audits',
-        description: 'Regular audits to ensure ongoing compliance'
+        title: 'All types of work permits',
+        description: 'Comprehensive support for all categories of work permits'
       },
     ],
     process: [

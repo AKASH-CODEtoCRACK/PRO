@@ -16,7 +16,7 @@ interface ServiceData {
     compliance: string;
     support: string;
   };
-  overview: string;
+  overview: string[];
   features: Array<{
     icon: React.ReactNode;
     title: string;
@@ -36,7 +36,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
   const imageUrl = images[data.image];
 
   return (
-    <main className="min-h-screen pt-16 pb-16 bg-white">
+    <main className="min-h-screen  pb-16 bg-white">
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <Image
@@ -66,7 +66,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
 
       <div className="max-w-7xl mx-auto px-4 -mt-20 relative z-20">
         {/* Quick Stats */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
@@ -87,7 +87,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
             <h3 className="text-2xl font-bold mb-2 text-gray-900">{data.stats.support}</h3>
             <p className="text-gray-600">Expert assistance</p>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Overview */}
         <motion.div
@@ -97,7 +97,16 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
           className="bg-white p-8 md:p-10 rounded-2xl mb-16 shadow-lg border border-gray-100"
         >
           <h2 className="text-3xl font-bold mb-6 text-gray-900">Service Overview</h2>
-          <p className="text-lg text-gray-700">{data.overview}</p>
+         <div className="space-y-5">
+  {data.overview.map((paragraph, index) => (
+    <p
+      key={index}
+      className="text-lg leading-relaxed text-gray-700"
+    >
+      {paragraph}
+    </p>
+  ))}
+</div>
         </motion.div>
 
         {/* Features Grid */}
@@ -156,9 +165,9 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
         </motion.div>
 
         {/* Two Column Layout */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        {/* <div className="grid lg:grid-cols-3 gap-8 mb-16"> */}
           {/* Portals */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -177,10 +186,10 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Documents */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -197,8 +206,8 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
                 ))}
               </ul>
             </div>
-          </motion.div>
-        </div>
+          </motion.div> */}
+        {/* </div> */}
 
         {/* CTA */}
         <motion.div
@@ -217,10 +226,10 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
           <div className="absolute inset-0 bg-gradient-to-r from-[#1E40AF]/95 to-[#60A5FA]/90" />
           <div className="relative z-10 p-12 md:p-16 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              Ready to Get Started?
+              Let's Get Started
             </h2>
             <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-              Let our experts handle your {data.title.toLowerCase()}
+              Our experts handle your {data.title.toLowerCase()}
             </p>
             <Link
               href="/contact"

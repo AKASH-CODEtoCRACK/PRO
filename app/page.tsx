@@ -68,19 +68,28 @@ function HeroSection() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="inline-block mb-6 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full"
           >
-            <span className="text-white font-semibold text-sm">Premium Business Services in UAE</span>
+            <span className="text-white font-semibold text-sm">Premium Business Services</span>
           </motion.div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
-            <span className="block">Build Your Business.</span>
+          <h1 className="text-3xl md:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
+            {/* <span className="block">Build Your Business.</span>
             <span className="block mt-3">We Handle the Rest.</span>
+            <span className="block mt-4 text-[#FCD34D] text-4xl md:text-6xl">
+              PRO Services in UAE
+            </span> */}
+            <span className="block">Start Your Business with Confidence</span>
+            <span className="block mt-3">We provide complete corporate and individual services in the UAE</span>
+             {/* <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
+            Focus on your vision—we’ll take care of the rest
+          </p> */}
             <span className="block mt-4 text-[#FCD34D] text-4xl md:text-6xl">
               PRO Services in UAE
             </span>
           </h1>
           
+         
           <p className="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
-            Save time, avoid penalties, and launch faster with our experts.
+            Save time and launch faster with our experts.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

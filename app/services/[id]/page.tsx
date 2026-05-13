@@ -28,7 +28,7 @@ export default function ServiceDetailPage({ params }: { params: { id: string } }
   const serviceImage = serviceImages[params.id] || images.officeSpace;
 
   return (
-    <main className="min-h-screen pt-16 pb-16">
+    <main className="min-h-screen pb-16">
       {/* Hero Section with Image */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <Image

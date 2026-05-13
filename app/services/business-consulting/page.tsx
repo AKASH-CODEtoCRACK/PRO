@@ -17,9 +17,8 @@ export default function BusinessConsultingPage() {
       compliance: 'Strategic Advice',
       support: 'Expert Consultants'
     },
-    overview: `Expert business consulting services to help you navigate the Saudi Arabian market. We provide 
-    strategic guidance on market entry, regulatory compliance, business structure optimization, and risk 
-    management to ensure your business success in the Kingdom.`,
+    overview:["Expert business consulting services to help you navigate the Saudi Arabian market."
+      , "We provide strategic guidance on market entry, regulatory compliance, business structure optimization, and risk management to ensure your business success in the Kingdom."],
     features: [
       {
         icon: <FaChartLine className="text-[#3B82F6]" size={24} />,
@@ -28,39 +27,39 @@ export default function BusinessConsultingPage() {
       },
       {
         icon: <MdBusiness className="text-[#3B82F6]" size={24} />,
-        title: 'Business Structure',
-        description: 'Optimal business structure recommendations'
+        title: 'Business setup consultation',
+        description: 'Professional consultation for smooth and successful business setup'
       },
       {
         icon: <FaShieldAlt className="text-[#3B82F6]" size={24} />,
-        title: 'Regulatory Compliance',
-        description: 'Compliance advisory and risk mitigation'
+        title: 'Document advisory services',
+        description: 'Expert guidance for all your business document needs'
       },
-      {
-        icon: <FaHandshake className="text-[#3B82F6]" size={24} />,
-        title: 'Government Relations',
-        description: 'Liaison with government entities'
-      },
+      // {
+      //   icon: <FaHandshake className="text-[#3B82F6]" size={24} />,
+      //   title: 'Government Relations',
+      //   description: 'Liaison with government entities'
+      // },
       {
         icon: <MdAssessment className="text-[#3B82F6]" size={24} />,
-        title: 'Risk Assessment',
-        description: 'Comprehensive business risk analysis'
+        title: 'Activity selection guidance',
+        description: 'Expert support in choosing the right business activities'
       },
-      {
-        icon: <FaLightbulb className="text-[#3B82F6]" size={24} />,
-        title: 'Business Planning',
-        description: 'Strategic business plan development'
-      },
-      {
-        icon: <MdTrendingUp className="text-[#3B82F6]" size={24} />,
-        title: 'Growth Strategy',
-        description: 'Expansion and growth planning'
-      },
-      {
-        icon: <MdSecurity className="text-[#3B82F6]" size={24} />,
-        title: 'Compliance Audits',
-        description: 'Regular compliance reviews and audits'
-      },
+      // {
+      //   icon: <FaLightbulb className="text-[#3B82F6]" size={24} />,
+      //   title: 'Business Planning',
+      //   description: 'Strategic business plan development'
+      // },
+      // {
+      //   icon: <MdTrendingUp className="text-[#3B82F6]" size={24} />,
+      //   title: 'Growth Strategy',
+      //   description: 'Expansion and growth planning'
+      // },
+      // {
+      //   icon: <MdSecurity className="text-[#3B82F6]" size={24} />,
+      //   title: 'Compliance Audits',
+      //   description: 'Regular compliance reviews and audits'
+      // },
     ],
     process: [
       { step: '1', title: 'Assessment', description: 'Analyze your business needs and goals' },

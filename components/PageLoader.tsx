@@ -1,33 +1,26 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+
 import { images } from '@/lib/images';
-import { branding } from '@/lib/branding';
 
 export default function PageLoader() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [progress, setProgress] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading progress
-    const progressInterval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(progressInterval);
-          return 100;
-        }
-        return prev + 10;
-      });
-    }, 150);
+    const minimumDelay = 3600;
 
-    // Check if page is fully loaded
+    const startTime = Date.now();
+
     const handleLoad = () => {
-      setProgress(100);
+      const elapsed = Date.now() - startTime;
+      const remaining = Math.max(minimumDelay - elapsed, 0);
+
       setTimeout(() => {
-        setIsLoading(false);
-      }, 500);
+        setLoading(false);
+      }, remaining);
     };
 
     if (document.readyState === 'complete') {
@@ -37,131 +30,153 @@ export default function PageLoader() {
     }
 
     return () => {
-      clearInterval(progressInterval);
       window.removeEventListener('load', handleLoad);
     };
   }, []);
 
   return (
     <AnimatePresence>
-      {isLoading && (
+      {loading && (
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[9999] bg-gradient-to-br from-white via-blue-50 to-white flex items-center justify-center"
+          transition={{ duration: 0.7 }}
+          className="fixed inset-0 z-[999999] flex items-center justify-center overflow-hidden bg-white"
         >
-          {/* Animated background pattern */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle at 2px 2px, #3B82F6 1px, transparent 0)',
-              backgroundSize: '40px 40px'
-            }} />
+          {/* Background Glow */}
+          <div className="absolute inset-0 overflow-hidden">
+            <motion.div
+              animate={{
+                scale: [1, 1.15, 1],
+                opacity: [0.12, 0.2, 0.12],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+              className="absolute top-1/2 left-1/2 h-[450px] w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#004B96]/20 blur-3xl"
+            />
+
+            <motion.div
+              animate={{
+                scale: [1.1, 1, 1.1],
+                opacity: [0.08, 0.18, 0.08],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+              className="absolute top-1/2 left-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#C4006A]/20 blur-3xl"
+            />
           </div>
 
-          <div className="relative z-10 flex flex-col items-center">
-            {/* Logo with pulse animation */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="relative w-32 h-32 mb-8"
-            >
-              <motion.div
-                animate={{
-                  scale: [1, 1.1, 1],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute inset-0"
-              >
-                <Image
-                  src={images.logo}
-                  alt={`${branding.name} Logo`}
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </motion.div>
+          {/* Main Content */}
+          <div className="relative z-10 flex flex-col items-center text-center px-6">
 
-              {/* Rotating ring around logo */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-                className="absolute inset-0 border-4 border-transparent border-t-[#3B82F6] border-r-[#60A5FA] rounded-full"
+            {/* Logo Animation */}
+            <motion.div
+              initial={{
+                scale: 2.5,
+                opacity: 0,
+              }}
+              animate={{
+                scale: 1,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="relative w-28 h-28 md:w-36 md:h-36"
+            >
+              <Image
+                src={images.logo}
+                alt="HRPR Logo"
+                fill
+                priority
+                className="object-contain"
               />
             </motion.div>
 
-            {/* Loading text with gradient */}
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              className="text-center"
+            {/* Brand Name */}
+            {/* <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="mt-6 text-3xl md:text-5xl font-black tracking-tight"
             >
-              <h2 className="text-2xl md:text-3xl font-bold mb-2">
-                <span className="text-gradient">Loading UAE's Best</span>
-              </h2>
-              <p className="text-xl md:text-2xl font-semibold text-gray-700">
-                PRO Agency
-              </p>
-            </motion.div>
+              <span className="text-[#C4006A]">HR</span>
+              <span className="text-[#004B96]">PR</span>
+            </motion.h1> */}
 
-            {/* Progress bar */}
-            <motion.div
-              initial={{ width: 0, opacity: 0 }}
-              animate={{ width: '200px', opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="mt-8 h-1 bg-gray-200 rounded-full overflow-hidden"
-            >
-              <motion.div
-                initial={{ width: '0%' }}
-                animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.3 }}
-                className="h-full bg-gradient-to-r from-[#3B82F6] to-[#60A5FA]"
-              />
-            </motion.div>
-
-            {/* Loading percentage */}
+            {/* Loading Text */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
-              className="mt-4 text-sm text-gray-500 font-medium"
+              transition={{ delay: 0.6 }}
+              className="mt-4 text-lg md:text-xl font-medium text-gray-700"
             >
-              {progress}%
+              Loading UAE’s Trusted PRO Services
             </motion.p>
 
-            {/* Animated dots */}
+            {/* Animated Dots */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.9 }}
-              className="flex gap-2 mt-4"
+              transition={{ delay: 0.8 }}
+              className="flex items-center gap-2 mt-5"
             >
-              {[0, 1, 2].map((i) => (
+              {[0, 1, 2].map((dot) => (
                 <motion.div
-                  key={i}
+                  key={dot}
                   animate={{
-                    scale: [1, 1.5, 1],
+                    y: [0, -8, 0],
                     opacity: [0.3, 1, 0.3],
                   }}
                   transition={{
-                    duration: 1.5,
+                    duration: 0.9,
                     repeat: Infinity,
-                    delay: i * 0.2,
+                    delay: dot * 0.15,
                   }}
-                  className="w-2 h-2 bg-[#3B82F6] rounded-full"
+                  className={`w-2.5 h-2.5 rounded-full ${
+                    dot === 1
+                      ? 'bg-[#C4006A]'
+                      : 'bg-[#004B96]'
+                  }`}
                 />
               ))}
             </motion.div>
+
+            {/* Tagline */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 }}
+              className="mt-5"
+            >
+              {/* <p className="text-sm md:text-base uppercase tracking-[0.35em] text-gray-500">
+                Premier Government Relations
+              </p> */}
+
+              <h3 className="mt-2 text-2xl md:text-4xl font-bold">
+                <span className="text-[#C4006A]">Best PRO</span>{' '}
+                <span className="text-[#004B96]">Services in UAE</span>
+              </h3>
+            </motion.div>
+
+            {/* Animated Line */}
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: '240px' }}
+              transition={{
+                duration: 1.8,
+                repeat: Infinity,
+                repeatType: 'reverse',
+              }}
+              className="mx-auto mt-6 h-[2px] rounded-full bg-gradient-to-r from-[#C4006A] via-[#004B96] to-[#C4006A]"
+            />
           </div>
         </motion.div>
       )}

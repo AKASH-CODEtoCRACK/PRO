@@ -13,42 +13,42 @@ export default function CompanySetupPage() {
     {
       icon: <FaBuilding className="text-[#3B82F6]" size={24} />,
       title: 'Commercial Registration (CR)',
-      description: 'Complete CR registration with Ministry of Commerce, including name reservation and license issuance'
+      // description: 'Complete CR registration with Ministry of Commerce, including name reservation and license issuance'
     },
     {
       icon: <MdBusinessCenter className="text-[#3B82F6]" size={24} />,
-      title: 'MISA Registration',
-      description: 'Full MISA portal setup and compliance management for your business entity'
+      title: 'New company formation',
+      // description: 'Full MISA portal setup and compliance management for your business entity'
     },
     {
       icon: <MdAccountBalance className="text-[#3B82F6]" size={24} />,
-      title: 'GOSI Employer Registration',
-      description: 'Register your company with GOSI for social insurance and employee benefits'
+      title: 'Memorandum of Association (MOA)',
+      // description: 'Register your company with GOSI for social insurance and employee benefits'
     },
     {
       icon: <FaStamp className="text-[#3B82F6]" size={24} />,
-      title: 'Municipality Licenses',
-      description: 'Obtain all necessary municipal permits and licenses for your business location'
+      title: 'Power of Attorney (POA)',
+      // description: 'Obtain all necessary municipal permits and licenses for your business location'
     },
     {
       icon: <FaCertificate className="text-[#3B82F6]" size={24} />,
       title: 'Chamber of Commerce Membership',
-      description: 'Register with the local Chamber of Commerce for business networking and support'
+      // description: 'Register with the local Chamber of Commerce for business networking and support'
     },
     {
       icon: <FaFileContract className="text-[#3B82F6]" size={24} />,
       title: 'Business License Processing',
-      description: 'Handle all business licensing requirements specific to your industry'
+      // description: 'Handle all business licensing requirements specific to your industry'
     },
     {
       icon: <MdVerifiedUser className="text-[#3B82F6]" size={24} />,
-      title: 'Zakat & Tax Registration',
-      description: 'Register with ZATCA for tax purposes and ensure compliance'
+      title: 'Trademark registration',
+      // description: 'Register with ZATCA for tax purposes and ensure compliance'
     },
     {
       icon: <FaHandshake className="text-[#3B82F6]" size={24} />,
       title: 'Bank Account Setup Support',
-      description: 'Assistance with corporate bank account opening and documentation'
+      // description: 'Assistance with corporate bank account opening and documentation'
     },
   ];
 
@@ -102,15 +102,15 @@ export default function CompanySetupPage() {
 
   const benefits = [
     'Fast-track processing with expert knowledge',
-    'Avoid common mistakes and delays',
+    // 'Avoid common mistakes and delays',
     'Complete documentation support',
-    'Direct liaison with government entities',
+    // 'Direct liaison with government entities',
     'Post-setup compliance guidance',
     'Transparent pricing with no hidden fees',
   ];
 
   return (
-    <main className="min-h-screen pt-16 pb-16 bg-white">
+    <main className="min-h-screen pb-16 bg-white">
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <Image
@@ -140,7 +140,7 @@ export default function CompanySetupPage() {
 
       <div className="max-w-7xl mx-auto px-4 -mt-20 relative z-20">
         {/* Quick Stats */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
@@ -161,7 +161,7 @@ export default function CompanySetupPage() {
             <h3 className="text-2xl font-bold mb-2 text-gray-900">Expert Support</h3>
             <p className="text-gray-600">Dedicated account manager</p>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Overview */}
         <motion.div
@@ -204,7 +204,7 @@ export default function CompanySetupPage() {
                   {feature.icon}
                 </div>
                 <h3 className="text-lg font-bold mb-2 text-gray-900">{feature.title}</h3>
-                <p className="text-sm text-gray-600">{feature.description}</p>
+                {/* <p className="text-sm text-gray-600">{feature.description}</p> */}
               </motion.div>
             ))}
           </div>
@@ -250,73 +250,57 @@ export default function CompanySetupPage() {
         </motion.div>
 
         {/* Two Column Layout */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {/* Government Portals */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-1"
-          >
-            <div className="bg-white p-8 rounded-2xl sticky top-24 shadow-lg border border-gray-100">
-              <h2 className="text-2xl font-bold mb-6 text-gray-900">Government Portals</h2>
-              <div className="space-y-3">
-                {portals.map((portal, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                    className="bg-blue-50 p-4 rounded-lg hover:bg-blue-100 transition-all border border-blue-100 group cursor-pointer"
-                  >
-                    <span className="font-semibold text-sm text-gray-900">{portal.name}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+        <div className="flex justify-center mb-16">
+  {/* Benefits */}
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    className="w-full max-w-5xl"
+  >
+    <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
+      
+      {/* Heading */}
+      <div className="text-center mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          Why Choose Our Service
+        </h2>
 
-          {/* Benefits */}
+        <p className="text-gray-500 mt-3 text-lg">
+          Trusted expertise for smooth and compliant business operations
+        </p>
+      </div>
+
+      {/* Benefits Grid */}
+      <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
+        {benefits.map((benefit, index) => (
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            key={index}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-2"
+            transition={{ delay: index * 0.05 }}
+            className="flex items-start gap-4 group"
           >
-            <div className="bg-white p-8 rounded-2xl mb-8 shadow-lg border border-gray-100">
-              <h2 className="text-2xl font-bold mb-6 text-gray-900">Why Choose Our Service</h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle className="text-[#3B82F6] flex-shrink-0 mt-1" size={20} />
-                    <span className="text-gray-700">{benefit}</span>
-                  </div>
-                ))}
-              </div>
+            {/* Icon */}
+            <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-[#3B82F6] transition-all duration-300">
+              <CheckCircle
+                className="text-[#3B82F6] group-hover:text-white transition-all duration-300"
+                size={22}
+              />
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-              <h2 className="text-2xl font-bold mb-6 text-gray-900">Required Documents</h2>
-              <ul className="space-y-3">
-                {[
-                  'Passport copies of all shareholders/partners',
-                  'Proof of address for shareholders',
-                  'Business activity description',
-                  'Proposed company name (3 options)',
-                  'Capital amount and shareholding structure',
-                  'Office lease agreement or ownership deed',
-                  'Power of Attorney (if applicable)',
-                ].map((doc, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <FileText className="text-[#3B82F6] flex-shrink-0 mt-1" size={18} />
-                    <span className="text-gray-700">{doc}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {/* Text */}
+            <span className="text-gray-700 text-lg leading-relaxed">
+              {benefit}
+            </span>
           </motion.div>
-        </div>
+        ))}
+      </div>
+    </div>
+  </motion.div>
+</div>
 
         {/* CTA Section */}
         <motion.div

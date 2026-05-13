@@ -17,50 +17,50 @@ export default function DocumentServicesPage() {
       compliance: '100% Accurate',
       support: 'Expert Team'
     },
-    overview: `Professional document services including attestation, translation, and notarization for all your 
-    business and personal needs in Saudi Arabia. We handle embassy services, MOFA attestations, and provide 
-    certified translations in multiple languages.`,
+    overview:["Professional document services including attestation, certified translation, and notarization for all your business and personal needs in the UAE. We manage end-to-end processing with embassies, the Ministry of Foreign Affairs, and other relevant authorities.",
+      "Professional document services including attestation, certified translation, and notarization for all your business and personal needs in the UAE. We manage end-to-end processing with embassies, the Ministry of Foreign Affairs, and other relevant authorities."]
+    ,
     features: [
       {
         icon: <FaStamp className="text-[#3B82F6]" size={24} />,
-        title: 'Document Attestation',
+        title: 'MOFA attestation',
         description: 'MOFA and embassy attestation services'
       },
       {
         icon: <FaLanguage className="text-[#3B82F6]" size={24} />,
-        title: 'Arabic Translation',
+        title: 'Legal translation',
         description: 'Certified translation services'
       },
       {
         icon: <FaFileSignature className="text-[#3B82F6]" size={24} />,
-        title: 'Notarization',
+        title: 'Certification and notarization',
         description: 'Official document notarization'
       },
       {
         icon: <MdVerifiedUser className="text-[#3B82F6]" size={24} />,
-        title: 'Embassy Services',
-        description: 'Liaison with embassies and consulates'
+        title: 'Document clearance services',
+        description: 'Swift and reliable document clearance to keep your business compliant'
       },
-      {
-        icon: <FaCertificate className="text-[#3B82F6]" size={24} />,
-        title: 'Certificate Verification',
-        description: 'Educational and professional certificate verification'
-      },
-      {
-        icon: <MdTranslate className="text-[#3B82F6]" size={24} />,
-        title: 'Multi-language Translation',
-        description: 'Translation in 20+ languages'
-      },
-      {
-        icon: <MdGavel className="text-[#3B82F6]" size={24} />,
-        title: 'Legal Document Processing',
-        description: 'Contracts, agreements, and legal papers'
-      },
-      {
-        icon: <MdDescription className="text-[#3B82F6]" size={24} />,
-        title: 'Document Legalization',
-        description: 'Complete legalization services'
-      },
+      // {
+      //   icon: <FaCertificate className="text-[#3B82F6]" size={24} />,
+      //   title: 'Equivalency',
+      //   description: 'Educational and professional certificate verification'
+      // },
+      // {
+      //   icon: <MdTranslate className="text-[#3B82F6]" size={24} />,
+      //   title: 'Multi-language Translation',
+      //   description: 'Translation in 20+ languages'
+      // },
+      // {
+      //   icon: <MdGavel className="text-[#3B82F6]" size={24} />,
+      //   title: 'Legal Document Processing',
+      //   description: 'Contracts, agreements, and legal papers'
+      // },
+      // {
+      //   icon: <MdDescription className="text-[#3B82F6]" size={24} />,
+      //   title: 'Document Legalization',
+      //   description: 'Complete legalization services'
+      // },
     ],
     process: [
       { step: '1', title: 'Document Submission', description: 'Submit original documents for processing' },

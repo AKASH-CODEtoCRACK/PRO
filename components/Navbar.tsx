@@ -35,8 +35,8 @@ export default function Navbar() {
       ]
     },
     { href: '/about', label: 'About Us' },
-    { href: '/industries', label: 'Industries' },
-    { href: '/resources', label: 'Resources' },
+    // { href: '/industries', label: 'Industries' },
+    // { href: '/resources', label: 'Resources' },
   ];
 
   return (

@@ -1,8 +1,8 @@
 // Modern Blue & White Gradient Branding - UAE Focused
 export const branding = {
-  name: 'ProVision',
+  name: 'HRPR Services',
   tagline: 'Your Gateway to Business Excellence in the UAE',
-  description: 'Premier PRO and Government Relations Services',
+  description: 'PRO | CONSULTANCY | BUSINESS SETUP | OUTSOURCING | ACCOUNTING | TAXATION',
   
   // Modern Blue & White Gradient Color Scheme - Clean and Professional
   colors: {
@@ -57,10 +57,10 @@ export const branding = {
   
   // Contact Information
   contact: {
-    email: 'info@provision.ae',
-    phone: '+971 4 123 4567',
-    whatsapp: '+971 50 123 4567',
-    address: 'Business Bay',
+    email: 'clients@hrprservices.com',
+    phone: '+971 50 254 9764 / +971 55 789 6593',
+    whatsapp: '+971 50 254 9764',
+    address: '',
     city: 'Dubai',
     country: 'United Arab Emirates',
     poBox: 'P.O. Box 12345, Dubai',
@@ -76,7 +76,7 @@ export const branding = {
   
   // Business Hours
   hours: {
-    weekdays: 'Sunday - Thursday: 9:00 AM - 6:00 PM',
-    weekend: 'Friday - Saturday: Closed',
+    weekdays: 'Monday - Saturday : 9:00 AM - 6:00 PM',
+    weekend: 'Sunday: Closed',
   },
 };

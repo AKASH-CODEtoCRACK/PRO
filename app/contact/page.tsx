@@ -44,7 +44,7 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <main className="min-h-screen pt-16 bg-white">
+    <main className="min-h-screen  bg-white">
       {/* Hero Section with Background */}
       <div className="relative py-24 overflow-hidden">
         <Image
@@ -82,133 +82,126 @@ export default function ContactPage() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-3 gap-12">
-          {/* Left Column - Contact Info & Map */}
-          <div className="lg:col-span-1 space-y-8">
-            <ContactInfo />
-            
-            {/* Business Hours */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="bg-gradient-to-br from-[#3B82F6] to-[#60A5FA] p-8 rounded-2xl shadow-xl text-white"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                  <Clock size={24} />
-                </div>
-                <h3 className="text-2xl font-bold">Business Hours</h3>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center py-2 border-b border-white/20">
-                  <span className="font-medium">Sunday - Thursday</span>
-                  <span className="text-white/90">9:00 AM - 6:00 PM</span>
-                </div>
-                <div className="flex justify-between items-center py-2">
-                  <span className="font-medium">Friday - Saturday</span>
-                  <span className="text-white/90">Closed</span>
-                </div>
-              </div>
-            </motion.div>
+        <div className="space-y-10">
 
-            {/* Why Contact Us */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100"
-            >
-              <h3 className="text-xl font-bold mb-4 text-gray-900">Why Contact Us?</h3>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#3B82F6] mt-1">✓</span>
-                  <span>Free consultation for new clients</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#3B82F6] mt-1">✓</span>
-                  <span>Fast response within 24 hours</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#3B82F6] mt-1">✓</span>
-                  <span>Expert guidance on all services</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#3B82F6] mt-1">✓</span>
-                  <span>Transparent pricing with no hidden fees</span>
-                </li>
-              </ul>
-            </motion.div>
-          </div>
+  {/* Top Contact Cards */}
+  <div className="grid md:grid-cols-3 gap-6">
+    <ContactInfo />
+  </div>
 
-          {/* Right Column - Contact Form */}
-          <div className="lg:col-span-2">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
-            >
-              <div className="bg-gradient-to-r from-[#3B82F6] to-[#60A5FA] p-8 text-white">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                    <MessageSquare size={24} />
-                  </div>
-                  <h2 className="text-3xl font-bold">Send Us a Message</h2>
-                </div>
-                <p className="text-white/90">
-                  Fill out the form below and our team will get back to you within 24 hours.
-                </p>
-              </div>
-
-              <div className="p-8">
-                <ContactForm
-                  isSubmitting={isSubmitting}
-                  setIsSubmitting={setIsSubmitting}
-                  submitStatus={contactSubmitStatus}
-                  setSubmitStatus={setContactSubmitStatus}
-                />
-              </div>
-            </motion.div>
-
-            {/* Schedule Meeting Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="mt-8 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
-            >
-              <div className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] p-8 text-white">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                    <Calendar size={24} />
-                  </div>
-                  <h2 className="text-3xl font-bold">Schedule a Meeting</h2>
-                </div>
-                <p className="text-white/90">
-                  Prefer a face-to-face consultation? Book a meeting with our experts.
-                </p>
-              </div>
-
-              <div className="p-8">
-                <MeetingForm
-                  isSubmitting={isSubmitting}
-                  setIsSubmitting={setIsSubmitting}
-                  submitStatus={meetingSubmitStatus}
-                  setSubmitStatus={setMeetingSubmitStatus}
-                />
-              </div>
-            </motion.div>
-          </div>
+  {/* Contact Form */}
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.3 }}
+    className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden"
+  >
+    <div className="bg-gradient-to-r from-[#3B82F6] to-[#60A5FA] p-8 text-white">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+          <MessageSquare size={24} />
         </div>
 
+        <h2 className="text-3xl font-bold">
+          Send Us a Message
+        </h2>
+      </div>
+
+      <p className="text-white/90">
+        Fill out the form below and our team will get back to you within 24 hours.
+      </p>
+    </div>
+
+    <div className="p-8">
+      <ContactForm
+        isSubmitting={isSubmitting}
+        setIsSubmitting={setIsSubmitting}
+        submitStatus={contactSubmitStatus}
+        setSubmitStatus={setContactSubmitStatus}
+      />
+    </div>
+  </motion.div>
+
+  {/* Business Hours + Why Contact Us */}
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.4 }}
+    className="bg-gradient-to-br from-[#0A2A5E] to-[#163D7A] p-8 rounded-2xl shadow-xl text-white"
+  >
+    <div className="grid lg:grid-cols-2 gap-10">
+
+      {/* Business Hours */}
+      <div>
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
+            <Clock size={22} />
+          </div>
+
+          <h3 className="text-2xl font-bold">
+            Business Hours
+          </h3>
+        </div>
+
+        <div className="space-y-4">
+          <div className="flex justify-between border-b border-white/10 pb-3">
+            <span>Monday - Saturday</span>
+            <span className="text-white/80">
+              9:00 AM - 6:00 PM
+            </span>
+          </div>
+
+          <div className="flex justify-between">
+            <span>Sunday</span>
+            <span className="text-white/80">
+              Closed
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Why Contact Us */}
+      <div>
+        <h3 className="text-2xl font-bold mb-6">
+          Why Contact Us?
+        </h3>
+
+        <div className="space-y-4">
+          {[
+            'Free consultation for new clients',
+            'Fast response from our expert team',
+            'Professional guidance on all services',
+            'Transparent pricing with no hidden fees',
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="flex items-start gap-3"
+            >
+              <div className="w-6 h-6 rounded-full bg-[#FCD34D]/20 flex items-center justify-center mt-0.5">
+                <span className="text-[#FCD34D] text-sm">
+                  ✓
+                </span>
+              </div>
+
+              <span className="text-white/90 leading-relaxed">
+                {item}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </motion.div>
+
+</div>
         {/* Map Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-20 bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100"
+          className="mt-10 bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100"
         >
           <div className="p-8 bg-gradient-to-r from-gray-50 to-white border-b border-gray-200">
             <div className="flex items-center gap-3 mb-2">
@@ -218,7 +211,7 @@ export default function ContactPage() {
               <h3 className="text-2xl font-bold text-gray-900">Visit Our Office</h3>
             </div>
             <p className="text-gray-600 ml-15">
-              Business Bay, Dubai, United Arab Emirates
+               Dubai, United Arab Emirates
             </p>
           </div>
           <div className="h-96">

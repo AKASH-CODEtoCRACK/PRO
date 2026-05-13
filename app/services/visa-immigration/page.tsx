@@ -17,18 +17,18 @@ export default function VisaImmigrationPage() {
     },
     {
       icon: <FaIdCard className="text-[#3B82F6]" size={24} />,
-      title: 'Iqama Issuance & Renewal',
-      description: 'Residence permit (Iqama) processing, renewal, and status updates'
+      title: 'Issuance & Renewal',
+      description: 'Residence permit processing, renewal, and status updates'
     },
     {
       icon: <FaPassport className="text-[#3B82F6]" size={24} />,
-      title: 'Muqeem Portal Management',
-      description: 'Complete management of Muqeem portal for all visa-related services'
+      title: 'Investor / partner visa',
+      description: 'Investor & partner visa services for smooth business entry'
     },
     {
       icon: <FaGlobe className="text-[#3B82F6]" size={24} />,
-      title: 'Absher Services',
-      description: 'Full Absher platform management for visa and immigration services'
+      title: 'Golden visa',
+      description: 'Simplified Golden Visa services for long-term residency'
     },
     {
       icon: <MdFlightTakeoff className="text-[#3B82F6]" size={24} />,
@@ -42,73 +42,73 @@ export default function VisaImmigrationPage() {
     },
     {
       icon: <FaUserTie className="text-[#3B82F6]" size={24} />,
-      title: 'Visa Transfer Services',
-      description: 'Sponsorship transfer and visa change services'
+      title: 'Visit visa',
+      description: 'Quick and reliable visit visa processing'
     },
     {
       icon: <FaPlane className="text-[#3B82F6]" size={24} />,
-      title: 'Final Exit Processing',
-      description: 'Complete final exit visa processing and clearance'
+      title: 'Visa cancellation',
+      description: 'Fast and hassle-free visa cancellation services'
     },
   ];
 
-  const visaTypes = [
-    {
-      type: 'Work Visa',
-      duration: '5-7 days',
-      description: 'For employees joining Saudi companies'
-    },
-    {
-      type: 'Family Visa',
-      duration: '7-10 days',
-      description: 'For dependents of Saudi residents'
-    },
-    {
-      type: 'Visit Visa',
-      duration: '3-5 days',
-      description: 'For business or family visits'
-    },
-    {
-      type: 'Iqama Renewal',
-      duration: '2-3 days',
-      description: 'Residence permit renewal'
-    },
-  ];
+  // const visaTypes = [
+  //   {
+  //     type: 'Work Visa',
+  //     duration: '5-7 days',
+  //     description: 'For employees joining Saudi companies'
+  //   },
+  //   {
+  //     type: 'Family Visa',
+  //     duration: '7-10 days',
+  //     description: 'For dependents of Saudi residents'
+  //   },
+  //   {
+  //     type: 'Visit Visa',
+  //     duration: '3-5 days',
+  //     description: 'For business or family visits'
+  //   },
+  //   {
+  //     type: 'Iqama Renewal',
+  //     duration: '2-3 days',
+  //     description: 'Residence permit renewal'
+  //   },
+  // ];
 
-  const process = [
-    {
-      step: '1',
-      title: 'Document Collection',
-      description: 'Gather all required documents and verify completeness'
-    },
-    {
-      step: '2',
-      title: 'Portal Submission',
-      description: 'Submit applications through Muqeem/Absher portals'
-    },
-    {
-      step: '3',
-      title: 'Medical & Biometrics',
-      description: 'Coordinate medical examinations and biometric appointments'
-    },
-    {
-      step: '4',
-      title: 'Visa Issuance',
-      description: 'Receive visa approval and complete final processing'
-    },
-  ];
+  // const process = [
+  //   {
+  //     step: '1',
+  //     title: 'Document Collection',
+  //     description: 'Gather all required documents and verify completeness'
+  //   },
+  //   {
+  //     step: '2',
+  //     title: 'Portal Submission',
+  //     description: 'Submit applications through Muqeem/Absher portals'
+  //   },
+  //   {
+  //     step: '3',
+  //     title: 'Medical & Biometrics',
+  //     description: 'Coordinate medical examinations and biometric appointments'
+  //   },
+  //   {
+  //     step: '4',
+  //     title: 'Visa Issuance',
+  //     description: 'Receive visa approval and complete final processing'
+  //   },
+  // ];
 
-  const portals = [
-    'Muqeem Portal',
-    'Absher Platform',
-    'Enjaz Services',
-    'Ministry of Interior (MOI)',
-    'GOSI',
-    'Ministry of Foreign Affairs',
-  ];
+  // const portals = [
+  //   'Muqeem Portal',
+  //   'Absher Platform',
+  //   'Enjaz Services',
+  //   'Ministry of Interior (MOI)',
+  //   'GOSI',
+  //   'Ministry of Foreign Affairs',
+  // ];
 
   return (
-    <main className="min-h-screen pt-16 pb-16 bg-white">
+    <main className="min-h-screen  pb-16 bg-white">
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <Image
@@ -138,7 +138,7 @@ export default function VisaImmigrationPage() {
 
       <div className="max-w-7xl mx-auto px-4 -mt-20 relative z-20">
         {/* Quick Stats */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
@@ -159,7 +159,7 @@ export default function VisaImmigrationPage() {
             <h3 className="text-2xl font-bold mb-2 text-gray-900">24/7 Support</h3>
             <p className="text-gray-600">Always available</p>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Overview */}
         <motion.div
@@ -170,13 +170,10 @@ export default function VisaImmigrationPage() {
         >
           <h2 className="text-3xl font-bold mb-6 text-gray-900">Service Overview</h2>
           <p className="text-lg text-gray-700 mb-4">
-            Navigating Saudi Arabia's visa and immigration system can be complex. Our comprehensive 
-            visa services cover everything from work permits to family visas, ensuring smooth processing 
-            and compliance with all immigration regulations.
+           Our comprehensive visa services cover everything from employment visas to family sponsorship, ensuring smooth processing and full compliance with all immigration regulations.
           </p>
           <p className="text-lg text-gray-700">
-            We handle all interactions with Muqeem, Absher, and other government portals, coordinate 
-            medical examinations, and ensure your visa applications are processed efficiently and correctly.
+           We manage all interactions with relevant government authorities and digital platforms, including immigration systems, labor departments, and residency services. From coordinating medical fitness tests and Emirates ID processing to handling documentation and approvals, we ensure your visa applications are completed efficiently and accurately.
           </p>
         </motion.div>
 
@@ -208,7 +205,7 @@ export default function VisaImmigrationPage() {
         </motion.div>
 
         {/* Visa Types */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -231,10 +228,10 @@ export default function VisaImmigrationPage() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Process */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -259,12 +256,12 @@ export default function VisaImmigrationPage() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Two Column Layout */}
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {/* Portals */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -283,10 +280,10 @@ export default function VisaImmigrationPage() {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Requirements */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -333,7 +330,7 @@ export default function VisaImmigrationPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
 
         {/* CTA */}

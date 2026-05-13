@@ -18,7 +18,7 @@ export default function AboutPage() {
     {
       icon: Target,
       title: 'Expertise',
-      description: 'Deep knowledge of UAE government systems and regulations with years of hands-on experience',
+      description: 'In-depth expertise in UAE government systems and regulations, strengthened by years of practical experience.',
     },
     {
       icon: TrendingUp,
@@ -33,40 +33,40 @@ export default function AboutPage() {
     {
       icon: Heart,
       title: 'Trust',
-      description: 'Confidential handling of all your business documents and sensitive data',
+      description: 'Trusted and secure handling of all your business documents and sensitive data',
     },
   ];
 
   const team = [
-    {
-      name: 'Abdullah Al-Saud',
-      role: 'Founder & CEO',
-      description: '15+ years in government relations',
-      icon: Users,
-    },
-    {
-      name: 'Fatima Al-Rashid',
-      role: 'Head of Compliance',
-      description: 'Expert in Saudi labor laws',
-      icon: Shield,
-    },
-    {
-      name: 'Omar Hassan',
-      role: 'Visa Services Director',
-      description: 'Specialist in immigration processes',
-      icon: Award,
-    },
-  ];
+  {
+    name: 'Hazra Ansari',
+    role: 'Founder & CEO',
+    description: '11+ years in Management Consultancy',
+    image: '/images/team/hazra.jpg',
+  },
+  {
+    name: 'Kalyan Appalla',
+    role: 'Managing Partner',
+    description: 'Expert in UAE Laws & Taxations',
+    image: '/images/team/Kallyan.jpeg',
+  },
+  {
+    name: 'Vamshi',
+    role: 'IT Specialist',
+    description: '5+ Years in IT Services',
+    image: '/images/team/PASUNURIVAMSHI.jpeg',
+  },
+];
 
   const milestones = [
-    { year: '2014', event: 'Company Founded', desc: 'Started with a vision to simplify PRO services' },
+    { year: '2016', event: 'Company Founded', desc: 'Started with a vision to simplify PRO services' },
     { year: '2017', event: '100+ Clients', desc: 'Reached our first major milestone' },
-    { year: '2020', event: 'Digital Transformation', desc: 'Launched online portal for clients' },
+    { year: '2020', event: 'Expanded Services', desc: 'Launched online portal for clients' },
     { year: '2024', event: '500+ Clients', desc: 'Serving businesses across Saudi Arabia' },
   ];
 
   return (
-    <main className="min-h-screen pt-16 pb-16 bg-white">
+    <main className="min-h-screen  pb-16 bg-white">
       {/* Hero Section with Background */}
       <div className="relative mb-16 py-32 overflow-hidden">
         <Image
@@ -88,7 +88,7 @@ export default function AboutPage() {
             About <span className="text-[#FCD34D]">Us</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
-            Your trusted partner for navigating Saudi Arabia's government relations landscape
+            Your trusted partner for navigating the UAE’s government relations landscape. We provide reliable, efficient, and compliant solutions to support businesses and individuals across the Emirates.
           </p>
         </motion.div>
       </div>
@@ -105,14 +105,10 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <p className="text-lg text-gray-700 mb-4">
-                Founded in 2014, we are a leading PRO and government relations agency specializing in helping businesses
-                navigate the complex landscape of UAE regulations and government services.
+                Established in 2016 in the UAE, HRPR Services has grown into a trusted PRO and government relations partner, helping businesses navigate the UAE regulations and government procedures.
               </p>
               <p className="text-lg text-gray-700 mb-4">
-                With over a decade of experience, our team of experts has successfully assisted hundreds
-                of companies in establishing and maintaining their operations in the Emirates. From startups
-                to multinational corporations, we provide tailored solutions that ensure full compliance
-                while optimizing operational efficiency.
+               With years of hands-on experience, our dedicated team has successfully supported companies in setting up and managing their operations across the UAE. From startups and SMEs to large corporations, we deliver tailored solutions that ensure full compliance while improving operational efficiency.
               </p>
             </div>
             <div>
@@ -122,8 +118,7 @@ export default function AboutPage() {
                 seeking reliable PRO services in the UAE.
               </p>
               <p className="text-lg text-gray-700">
-                We pride ourselves on building long-term relationships with our clients, providing not just
-                services, but strategic partnerships that contribute to their success in the UAE market.
+                At HRPR Services, we believe in building long-term relationships based on trust, transparency, and reliability.
               </p>
             </div>
           </div>
@@ -179,12 +174,10 @@ export default function AboutPage() {
           >
             <h3 className="text-3xl font-bold mb-6 text-[#3B82F6]">Our Vision</h3>
             <p className="text-lg text-gray-700 mb-4">
-              To be the most trusted and innovative PRO services provider in the UAE, recognized
-              for our excellence, integrity, and contribution to the Emirates' economic development.
+             To set the benchmark for excellence in PRO services across the UAE, redefining government relations through innovation, trust, and unmatched expertise.
             </p>
             <p className="text-lg text-gray-700">
-              We envision a future where every business, regardless of size, can easily navigate
-              government processes and thrive in the UAE market.
+              We envision a future where businesses operate effortlessly, empowered by a reliable partner that ensures seamless compliance and drives sustainable growth.
             </p>
           </motion.div>
         </div>
@@ -256,7 +249,7 @@ export default function AboutPage() {
         </motion.div>
 
         {/* Team */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -285,7 +278,61 @@ export default function AboutPage() {
               );
             })}
           </div>
-        </motion.div>
+        </motion.div> */}
+        {/* Team */}
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  className="mb-16"
+>
+  <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-gray-900">
+    Meet Our Leadership
+  </h2>
+
+  <div className="grid md:grid-cols-3 gap-8">
+    {team.map((member, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.1 }}
+        className="group bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300"
+      >
+        {/* Image */}
+        <div className="relative overflow-hidden">
+          <img
+            src={member.image}
+            alt={member.name}
+            className="w-full h-[320px] object-cover object-top group-hover:scale-105 transition-transform duration-500"
+          />
+          
+
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+        </div>
+        
+
+        {/* Content */}
+        <div className="p-6 text-center">
+          <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            {member.name}
+          </h3>
+
+          <p className="text-[#3B82F6] font-semibold mb-3">
+            {member.role}
+          </p>
+
+          <p className="text-gray-600 leading-relaxed">
+            {member.description}
+          </p>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</motion.div>
+
 
         {/* CTA */}
         <motion.div
@@ -295,7 +342,7 @@ export default function AboutPage() {
           className="bg-gradient-to-r from-[#1E40AF] to-[#60A5FA] p-12 rounded-2xl text-center shadow-2xl"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Ready to Work With Us?
+            Let's Get Started
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Join hundreds of satisfied clients who trust us with their government relations needs in the UAE
